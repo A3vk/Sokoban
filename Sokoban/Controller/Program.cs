@@ -8,6 +8,8 @@ namespace Sokoban
 {
     class Program
     {
+        Controller _controller;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");

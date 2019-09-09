@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Domain
+namespace Sokoban.View
 {
-    public class Class1
+    public class InputView
     {
     }
 }
