@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sokoban", "Sokoban\Sokoban.csproj", "{DE82AF12-36D3-498D-8EF5-01F87126E07E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sokoban.Controller", "Sokoban\Sokoban.Controller.csproj", "{DE82AF12-36D3-498D-8EF5-01F87126E07E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sokoban.Domain", "Sokoban.Domain\Sokoban.Domain.csproj", "{12D921C3-773D-43AA-A6EB-76DB026FD90C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sokoban.View", "Sokoban.View\Sokoban.View.csproj", "{173B770A-7DDE-4C3C-AF3F-101050F70CBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{DE82AF12-36D3-498D-8EF5-01F87126E07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE82AF12-36D3-498D-8EF5-01F87126E07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE82AF12-36D3-498D-8EF5-01F87126E07E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12D921C3-773D-43AA-A6EB-76DB026FD90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D921C3-773D-43AA-A6EB-76DB026FD90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D921C3-773D-43AA-A6EB-76DB026FD90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D921C3-773D-43AA-A6EB-76DB026FD90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{173B770A-7DDE-4C3C-AF3F-101050F70CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{173B770A-7DDE-4C3C-AF3F-101050F70CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{173B770A-7DDE-4C3C-AF3F-101050F70CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{173B770A-7DDE-4C3C-AF3F-101050F70CBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
