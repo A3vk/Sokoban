@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,10 @@ namespace Sokoban
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
-            Console.WriteLine("HAIIII!!!!!!");
+            new Controller();
         }
     }
 }
