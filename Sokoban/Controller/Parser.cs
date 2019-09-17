@@ -62,9 +62,8 @@ namespace Sokoban
                             break;
                         case '@':
                             Floor forkliftFloor = new Floor();
-                            Forklift forklift = new Forklift();
+                            Forklift forklift = new Forklift(forkliftFloor);
                             forkliftFloor.Forklift = forklift;
-                            forklift.Location = forkliftFloor;
                             temp = forkliftFloor;
                             break;
                         default:

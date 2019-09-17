@@ -9,5 +9,10 @@ namespace Sokoban.Domain
     public class Forklift
     {
         public Tile Location { get; set; }
+
+        public Forklift(Tile location)
+        {
+            Location = location;
+        }
     }
 }
