@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.View
+namespace Sokoban.Domain
 {
-    public class InputView
+    class Void : Tile
     {
     }
 }

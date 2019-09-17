@@ -8,6 +8,11 @@ namespace Sokoban.Domain
 {
     public class Crate
     {
-        private Floor _location;
+        public Floor Location { get; set}
+
+        public Crate(Floor location)
+        {
+            Location = location;
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Sokoban
         {
             Parser parser = new Parser();
             parser.parseMaze(1);
-
+            
             Console.ReadLine();
         }
     }
