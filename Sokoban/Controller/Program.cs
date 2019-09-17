@@ -11,7 +11,7 @@ namespace Sokoban
 
         static void Main(string[] args)
         {
-            Controller _controller = new Controller();
+            new Controller();
         }
     }
 }

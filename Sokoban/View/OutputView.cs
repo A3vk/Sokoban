@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,36 @@ namespace Sokoban.View
 {
     public class OutputView
     {
+        Dictionary<Type, char> charDictonary;
+
+        public OutputView()
+        {
+            charDictonary = new Dictionary<Type, char>();
+            charDictonary.Add(typeof(Wall), '█');
+            charDictonary.Add(typeof(Floor), '.');
+            charDictonary.Add(typeof(Destination), 'X');
+            charDictonary.Add(typeof(VoidTile), ' ');
+        }
+        
+        public void displayMaze(Maze maze)
+        {
+            Console.Clear();
+            Tile head = maze.Head;
+
+            Tile currentHead = head;
+
+            while (head != null)
+            {
+                while(currentHead != null)
+                {
+                    Console.Write(charDictonary[currentHead.GetType()]);
+                    currentHead = currentHead.East;
+                }
+
+                Console.WriteLine();
+                head = head.South;
+                currentHead = head;
+            }
+        }
     }
 }
