@@ -88,5 +88,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Maze\doolhof1.txt" />
+    <Content Include="Maze\doolhof2.txt" />
+    <Content Include="Maze\doolhof3.txt" />
+    <Content Include="Maze\doolhof4.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
