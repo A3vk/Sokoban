@@ -8,6 +8,6 @@ namespace Sokoban.Domain
 {
     public class Forklift
     {
-        private Floor _location;
+        public Tile Location { get; set; }
     }
 }

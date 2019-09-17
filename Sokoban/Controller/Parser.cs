@@ -11,7 +11,7 @@ namespace Sokoban
     {
         private Maze _maze;
 
-        private string[] _names = { "doolhof1.txt", "doolhof2.txt", "doolhof3.txt", "doolhof4txt" };
+        private string[] _names = { "doolhof1.txt", "doolhof2.txt", "doolhof3.txt", "doolhof4.txt" };
 
         private Tile[] _heads;
         private List<char[]> _lines;
@@ -55,10 +55,17 @@ namespace Sokoban
                             temp = new Destination();
                             break;
                         case 'o':
-                            temp = new Floor();
+                            Floor crateFloor = new Floor();
+                            Crate crate = new Crate(crateFloor);
+                            crateFloor.Crate = crate;
+                            temp = crateFloor;
                             break;
                         case '@':
-                            temp = new Floor();
+                            Floor forkliftFloor = new Floor();
+                            Forklift forklift = new Forklift();
+                            forkliftFloor.Forklift = forklift;
+                            forklift.Location = forkliftFloor;
+                            temp = forkliftFloor;
                             break;
                         default:
                             temp = new VoidTile();

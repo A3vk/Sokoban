@@ -18,7 +18,7 @@ namespace Sokoban
         public Controller()
         {
             Parser parser = new Parser();
-            _maze = parser.parseMaze(1);
+            _maze = parser.parseMaze(4);
 
             OutputView output = new OutputView();
             output.displayMaze(_maze);
