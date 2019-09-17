@@ -13,21 +13,30 @@ namespace Sokoban
 
         private string[] _names = { "doolhof1.txt", "doolhof2.txt", "doolhof3.txt", "doolhof4txt" };
 
+        private Tile[] _head;
+        private List<char[]> _lines;
+
+        // TODO: Herschrijven
         public void parseMaze(int number)
         {
             string[] inputLines = System.IO.File.ReadAllLines(@"../../Maze/" + _names[number - 1]);
-            List<char[]> lines = new List<char[]>();
+            _lines = new List<char[]>();
 
             foreach (var line in inputLines)
             {
-                lines.Add(line.ToCharArray());
+                _lines.Add(line.ToCharArray());
             }
 
-            Tile[] head = new Tile[lines.Count];
+            _head = new Tile[_lines.Count];
             
-            for (int outer = 0; outer < lines.Count; outer++)
+            
+        }
+
+        public void connectHorizontal()
+        {
+            for (int outer = 0; outer < _lines.Count; outer++)
             {
-                char[] currentLine = lines[outer];
+                char[] currentLine = _lines[outer];
                 for (int inner = 0; inner < currentLine.Length; inner++)
                 {
                     Tile temp;
@@ -53,13 +62,26 @@ namespace Sokoban
                             break;
                     }
 
-                    if(inner == 0)
+                    if (inner == 0)
                     {
-                        head[outer] = temp;
-                    } else
-                    {
-
+                        _head[outer] = temp;
                     }
+                    else
+                    {
+                        _head[outer].addEast(temp);
+                    }
+                }
+            }
+        }
+
+        public void connectVertical()
+        {
+            for (int outer = 0; outer < _head.Length; outer++)
+            {
+                char[] currentLine = _lines[outer];
+                for (int inner = 0; inner < currentLine.Length; inner++)
+                {
+
                 }
             }
         }
