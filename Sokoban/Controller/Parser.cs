@@ -29,6 +29,7 @@ namespace Sokoban
 
             _heads = new Tile[_lines.Count];
 
+            _maze = new Maze();
             connectHorizontal();
             connectVertical();
 
@@ -58,12 +59,14 @@ namespace Sokoban
                             Floor crateFloor = new Floor();
                             Crate crate = new Crate(crateFloor);
                             crateFloor.Crate = crate;
+                            _maze.Crates.Add(crate);
                             temp = crateFloor;
                             break;
                         case '@':
                             Floor forkliftFloor = new Floor();
                             Forklift forklift = new Forklift(forkliftFloor);
                             forkliftFloor.Forklift = forklift;
+                            _maze.Forklift = forklift;
                             temp = forkliftFloor;
                             break;
                         default:
@@ -85,7 +88,7 @@ namespace Sokoban
 
         public void connectVertical()
         {
-            _maze = new Maze(_heads[0]);
+            _maze.Head = _heads[0];
             while(_heads[0].East != null)
             {
                 for (int i = 1; i < _heads.Length; i++)

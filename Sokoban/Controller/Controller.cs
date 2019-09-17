@@ -47,6 +47,8 @@ namespace Sokoban
             while(true)
             {
                 _outputView.displayMaze(_maze);
+
+                // Schrijf de input functie
                 _inputView.waitForInput();
             }
         }
