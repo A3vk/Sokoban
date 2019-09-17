@@ -23,6 +23,8 @@ namespace Sokoban.View
         public void displayMaze(Maze maze)
         {
             Console.Clear();
+            Console.WriteLine("");
+
             Tile head = maze.Head;
 
             Tile currentHead = head;
@@ -43,21 +45,21 @@ namespace Sokoban.View
 
         public void displayMenu ()
         {
-
-            Console.WriteLine(" ____________________________________________________ \n" +
-                              "|                                                    |\n" +
-                              "| Welkom bij Sokoban                                 |\n" +
-                              "|                                                    |\n" +
-                              "| Betekenis van de symbolen   |   Doel van het spel  |\n" +
-                              "|                             |                      |\n" +
-                              "| Spatie : Outerspace         |   Duw met de truck   |\n" +
-                              "|      █ : Muur               |   de krat(ten)       |\n" +
-                              "|      . : Vloer              |   naar de bestemming |\n" +
-                              "|      O : Krat               |                      |\n" +
-                              "|      0 : Krat op bestemming |                      |\n" +
-                              "|      X : Bestemming         |                      |\n" +
-                              "|      @ : Truck              |                      |\n" +
-                              "|____________________________________________________|\n" +
+            
+            Console.WriteLine("┌────────────────────────────────────────────────────┐\n" +
+                              "│                                                    │\n" +
+                              "│ Welkom bij Sokoban                                 │\n" +
+                              "│                                                    │\n" +
+                              "│ Betekenis van de symbolen   |   Doel van het spel  │\n" +
+                              "│                             |                      │\n" +
+                              "│ Spatie : Outerspace         |   Duw met de truck   │\n" +
+                              "│      █ : Muur               |   de krat(ten)       │\n" +
+                              "│      . : Vloer              |   naar de bestemming │\n" +
+                              "│      O : Krat               |                      │\n" +
+                              "│      0 : Krat op bestemming |                      │\n" +
+                              "│      X : Bestemming         |                      │\n" +
+                              "│      @ : Truck              |                      │\n" +
+                              "└────────────────────────────────────────────────────┘\n" +
                               "                                                      \n" +
                               "                                                      \n" +
                               "> Kies een doolhof ( 1 - 4 ), s = Stop                  ");
