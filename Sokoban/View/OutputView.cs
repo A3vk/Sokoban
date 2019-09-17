@@ -49,7 +49,7 @@ namespace Sokoban.View
                               "> Gebruik de pijltjestoetsen ( s = stop, r = reset )");
         }
 
-        public void printMenu ()
+        public void displayMenu ()
         {
             
             Console.WriteLine("┌────────────────────────────────────────────────────┐\n" +

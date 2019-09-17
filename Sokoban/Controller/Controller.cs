@@ -20,8 +20,8 @@ namespace Sokoban
             Parser parser = new Parser();
             _maze = parser.parseMaze(4);
 
-            OutputView output = new OutputView();
-            output.displayMaze(_maze);
+            _outputView = new OutputView();
+            _outputView.displayMenu();
 
             Console.ReadLine();
         }
