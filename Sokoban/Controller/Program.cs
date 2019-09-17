@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,9 @@ namespace Sokoban
 
         static void Main(string[] args)
         {
-            Controller _controller = new Controller();
+            OutputView output = new OutputView();
+            output.printMenu();
+            Console.ReadLine();
         }
     }
 }
