@@ -77,22 +77,16 @@
   <Class Name="Sokoban.Domain.Floor">
     <Position X="6" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAEAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAABABAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Floor.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_crate" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Domain.Forklift">
     <Position X="5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Forklift.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_location" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Domain.Maze">
     <Position X="7.75" Y="5" Width="1.5" />
@@ -120,7 +114,7 @@
   <Class Name="Sokoban.View.OutputView" Collapsed="true">
     <Position X="8.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQAAAAAABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
