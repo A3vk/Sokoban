@@ -36,7 +36,27 @@ namespace Sokoban.View
             {
                 while(currentHead != null)
                 {
-                    Console.Write(charDictonary[currentHead.GetType()]);
+                    char c = charDictonary[currentHead.GetType()];
+
+                    if(currentHead is Floor)
+                    {
+                        Floor floor = (Floor)currentHead;
+                        if(floor.Forklift != null)
+                        {
+                            c = '@';
+                        } else if(floor.Crate != null)
+                        {
+                            if(floor.GetType() == typeof(Destination))
+                            {
+                                c = '0';
+                            } else
+                            {
+                                c = 'O';
+                            }
+                        }
+                    }
+
+                    Console.Write(c);
                     currentHead = currentHead.East;
                 }
 
