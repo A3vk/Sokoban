@@ -10,7 +10,6 @@ namespace Sokoban
 {
     class Controller
     {
-        private Parser _parser;
         private Maze _maze;
         private InputView _inputView;
         private OutputView _outputView;
@@ -18,12 +17,39 @@ namespace Sokoban
         public Controller()
         {
             Parser parser = new Parser();
-            _maze = parser.parseMaze(1);
+            _inputView = new InputView();
 
             _outputView = new OutputView();
             _outputView.displayMenu();
 
-            Console.ReadLine();
+            int number = 0;
+            while (true) {
+                Console.Write("\b");
+                ConsoleKeyInfo input = _inputView.waitForInput();
+                if (input.Key != ConsoleKey.S) {
+                    int.TryParse(input.KeyChar.ToString() , out number);
+                    if (number >= 1 && number <= 4)
+                    {
+                        break;
+                    }
+                } else
+                {
+                    return;
+                }
+            }
+
+            _maze = parser.parseMaze(number);
+            start();
         }
+
+        public void start()
+        {
+            while(true)
+            {
+                _outputView.displayMaze(_maze);
+                _inputView.waitForInput();
+            }
+        }
+
     }
 }
