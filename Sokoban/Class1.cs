@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Domain
+namespace Sokoban
 {
-    public class Forklift
+    class Class1
     {
-        private Floor _location;
+        private Program program;
     }
 }

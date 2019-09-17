@@ -44,21 +44,13 @@
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_parser" />
-      <Field Name="_inputView" />
       <Field Name="_maze" />
+      <Field Name="_inputView" />
       <Field Name="_outputView" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Domain.Crate">
-    <Position X="4" Y="5.75" Width="1.5" />
-    <AssociationLine Name="_location" Type="Sokoban.Domain.Tile" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.5" Y="6.316" />
-        <Point X="5.875" Y="6.316" />
-        <Point X="5.875" Y="6.874" />
-        <Point X="7.75" Y="6.874" />
-      </Path>
-    </AssociationLine>
+    <Position X="3.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>Domain\Crate.cs</FileName>
@@ -68,7 +60,13 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Domain.Destination" Collapsed="true">
-    <Position X="9.75" Y="9" Width="1.5" />
+    <Position X="6" Y="10.25" Width="1.5" />
+    <InheritanceLine Type="Sokoban.Domain.Floor" FixedFromPoint="true">
+      <Path>
+        <Point X="6.75" Y="9.691" />
+        <Point X="6.75" Y="10.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Destination.cs</FileName>
@@ -83,40 +81,28 @@
   </Class>
   <Class Name="Sokoban.Domain.Tile">
     <Position X="7.75" Y="6.5" Width="1.5" />
-    <AssociationLine Name="_forklift" Type="Sokoban.Domain.Forklift" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="7.75" Y="8" />
-        <Point X="3.302" Y="8" />
-        <Point X="3.302" Y="5" />
-        <Point X="4" Y="5" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AABABACIAAAAAAAAAAAAAAAAAAAAAAACAAQAAAAAAAA=</HashCode>
+      <HashCode>AABABACAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Domain\Tile.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_crate" />
-      <Field Name="_forklift" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Domain.Floor" Collapsed="true">
     <Position X="6" Y="9" Width="1.5" />
+    <InheritanceLine Type="Sokoban.Domain.Tile" FixedFromPoint="true">
+      <Path>
+        <Point X="8.5" Y="8.18" />
+        <Point X="8.5" Y="8.625" />
+        <Point X="6.75" Y="8.625" />
+        <Point X="6.75" Y="9" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Floor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Domain.Forklift">
-    <Position X="4" Y="4.75" Width="1.5" />
-    <AssociationLine Name="_location" Type="Sokoban.Domain.Tile" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="4" Y="5.188" />
-        <Point X="3.625" Y="5.188" />
-        <Point X="3.625" Y="7.809" />
-        <Point X="7.75" Y="7.809" />
-      </Path>
-    </AssociationLine>
+    <Position X="5.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>Domain\Forklift.cs</FileName>
@@ -130,6 +116,13 @@
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
+    <AssociationLine Name="_crates" Type="Sokoban.Domain.Crate" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="5.188" />
+        <Point X="4.5" Y="5.188" />
+        <Point X="4.5" Y="6.75" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAABCAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Maze.cs</FileName>

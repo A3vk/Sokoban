@@ -12,7 +12,5 @@ namespace Sokoban.Domain
         private Tile _tileEast;
         private Tile _tileSouth;
         private Tile _tileWest;
-        private Crate _crate;
-        private Forklift _forklift;
     }
 }

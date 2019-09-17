@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Domain
 {
-    public class Destination : Tile
+    public class Destination : Floor
     {
     }
 }

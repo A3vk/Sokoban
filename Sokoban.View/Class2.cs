@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Domain
+namespace Sokoban.View
 {
-    public class Forklift
+    public class Class2
     {
-        private Floor _location;
     }
 }

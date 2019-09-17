@@ -8,5 +8,7 @@ namespace Sokoban.Domain
 {
     public class Floor : Tile
     {
+        private Crate _crate;
+        private Forklift _forklift;
     }
 }
