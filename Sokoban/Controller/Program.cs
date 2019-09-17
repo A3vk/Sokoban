@@ -12,7 +12,10 @@ namespace Sokoban
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            Parser parser = new Parser();
+            parser.parseMaze(1);
+
+            Console.ReadLine();
         }
     }
 }
