@@ -14,5 +14,13 @@ namespace Sokoban
         private Maze _maze;
         private InputView _inputView;
         private OutputView _outputView;
+
+        public Controller()
+        {
+            Parser parser = new Parser();
+            _maze = parser.parseMaze(1);
+
+            Console.ReadLine();
+        }
     }
 }

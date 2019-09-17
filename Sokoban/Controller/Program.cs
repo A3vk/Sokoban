@@ -8,14 +8,10 @@ namespace Sokoban
 {
     class Program
     {
-        Controller _controller;
 
         static void Main(string[] args)
         {
-            Parser parser = new Parser();
-            parser.parseMaze(1);
-            
-            Console.ReadLine();
+            Controller _controller = new Controller();
         }
     }
 }

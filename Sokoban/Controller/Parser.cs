@@ -13,11 +13,11 @@ namespace Sokoban
 
         private string[] _names = { "doolhof1.txt", "doolhof2.txt", "doolhof3.txt", "doolhof4txt" };
 
-        private Tile[] _head;
+        private Tile[] _heads;
         private List<char[]> _lines;
 
         // TODO: Herschrijven
-        public void parseMaze(int number)
+        public Maze parseMaze(int number)
         {
             string[] inputLines = System.IO.File.ReadAllLines(@"../../Maze/" + _names[number - 1]);
             _lines = new List<char[]>();
@@ -27,9 +27,12 @@ namespace Sokoban
                 _lines.Add(line.ToCharArray());
             }
 
-            _head = new Tile[_lines.Count];
-            
-            
+            _heads = new Tile[_lines.Count];
+
+            connectHorizontal();
+            connectVertical();
+
+            return _maze;
         }
 
         public void connectHorizontal()
@@ -64,11 +67,11 @@ namespace Sokoban
 
                     if (inner == 0)
                     {
-                        _head[outer] = temp;
+                        _heads[outer] = temp;
                     }
                     else
                     {
-                        _head[outer].addEast(temp);
+                        _heads[outer].addEast(temp);
                     }
                 }
             }
@@ -76,13 +79,16 @@ namespace Sokoban
 
         public void connectVertical()
         {
-            for (int outer = 0; outer < _head.Length; outer++)
+            _maze = new Maze(_heads[0]);
+            while(_heads[0].East != null)
             {
-                char[] currentLine = _lines[outer];
-                for (int inner = 0; inner < currentLine.Length; inner++)
+                for (int i = 1; i < _heads.Length; i++)
                 {
-
+                    _heads[0].addSouth(_heads[i]);
+                    _heads[i] = _heads[i].East;
                 }
+
+                _heads[0] = _heads[0].East;
             }
         }
     }
