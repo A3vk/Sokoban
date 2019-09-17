@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Domain
 {
-    class Void : Tile
+    public class VoidTile : Tile
     {
     }
 }

@@ -43,16 +43,22 @@ namespace Sokoban
                             temp = new Destination();
                             break;
                         case 'o':
-                            Floor floor = new Floor();
-                            Crate crate = new Crate(floor);
-                            floor.setCrate(crate);
-                            _maze.addCrate(crate);
-                            temp = floor;
+                            temp = new Floor();
                             break;
                         case '@':
+                            temp = new Floor();
                             break;
                         default:
+                            temp = new VoidTile();
                             break;
+                    }
+
+                    if(inner == 0)
+                    {
+                        head[outer] = temp;
+                    } else
+                    {
+
                     }
                 }
             }

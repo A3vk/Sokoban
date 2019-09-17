@@ -8,9 +8,26 @@ namespace Sokoban.Domain
 {
     public abstract class Tile
     {
-        private Tile _tileNorth;
-        private Tile _tileEast;
-        private Tile _tileSouth;
-        private Tile _tileWest;
+        public Tile North { get; set; }
+        public Tile East { get; set; }
+        public Tile South { get; set; }
+        public Tile West { get; set; }
+
+        public void addEast(Tile addTile)
+        {
+            if(East == null)
+            {
+                East = addTile;
+                East.addWest(this);
+            } else
+            {
+                East.addEast(addTile);
+            }
+        }
+
+        public void addWest(Tile tile)
+        {
+            West = tile;
+        }
     }
 }

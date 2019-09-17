@@ -67,7 +67,7 @@
     <Compile Include="Domain\Forklift.cs" />
     <Compile Include="Domain\Maze.cs" />
     <Compile Include="Domain\Tile.cs" />
-    <Compile Include="Domain\Void.cs" />
+    <Compile Include="Domain\VoidTile.cs" />
     <Compile Include="Domain\Wall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\InputView.cs" />

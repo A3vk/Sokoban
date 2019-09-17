@@ -10,5 +10,10 @@ namespace Sokoban.Domain
     {
         private Crate _crate;
         private Forklift _forklift;
+
+        public void setCrate()
+        {
+
+        }
     }
 }
