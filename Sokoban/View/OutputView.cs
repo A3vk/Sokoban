@@ -41,7 +41,7 @@ namespace Sokoban.View
             }
         }
 
-        public void printMenu ()
+        public void displayMenu ()
         {
 
             Console.WriteLine(" ____________________________________________________ \n" +
