@@ -74,7 +74,30 @@ namespace Sokoban
                         _maze.Forklift.Move(Dir.LEFT);
                         break;
                 }
+
+                if(checkWin())
+                {
+                    break;
+                }
             }
+
+            _outputView.displayVictory();
+            Console.ReadKey();
+        }
+
+        public bool checkWin()
+        {
+            bool win = true;
+
+            foreach (Crate crate in _maze.Crates)
+            {
+                if(crate.Location.GetType() != typeof(Destination))
+                {
+                    win = false;
+                }
+            }
+
+            return win;
         }
 
     }

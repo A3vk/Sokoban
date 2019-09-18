@@ -89,6 +89,12 @@ namespace Sokoban.View
                               "\n" +
                               "\n" +
                               "> Kies een doolhof ( 1 - 4 ), s = Stop");
-        }                     
+        }
+        
+        public void displayVictory()
+        {
+            Console.Clear();
+            Console.WriteLine("Je hebt gewonnen!");
+        }
     }
 }
