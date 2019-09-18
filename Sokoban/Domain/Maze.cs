@@ -16,5 +16,10 @@ namespace Sokoban.Domain
         {
             Crates = new List<Crate>();
         }
+
+        public void moveForklift(Dir dir)
+        {
+            Forklift.Move(dir);
+        }
     }
 }

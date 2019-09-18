@@ -8,5 +8,14 @@ namespace Sokoban.Domain
 {
     public class VoidTile : Tile
     {
+        public override bool isValidForkliftLocation(Dir dir)
+        {
+            return false;
+        }
+
+        public override bool isValidCrateLocation()
+        {
+            return false;
+        }
     }
 }

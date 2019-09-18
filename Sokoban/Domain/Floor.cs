@@ -11,9 +11,23 @@ namespace Sokoban.Domain
         public Crate Crate { get; set; }
         public Forklift Forklift { get; set; }
 
-        public void setCrate()
+        public override bool isValidForkliftLocation(Dir dir)
         {
+            if(Crate == null)
+            {
+                return true;
+            } else
+            {
+                return Crate.move(dir);
+            }
+        }
 
+        public override bool isValidCrateLocation()
+        {
+            if(Crate == null)
+                return true;
+
+            return false;
         }
     }
 }

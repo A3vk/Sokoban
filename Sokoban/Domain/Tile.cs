@@ -46,5 +46,8 @@ namespace Sokoban.Domain
         {
             North = tile;
         }
+
+        public abstract bool isValidForkliftLocation(Dir dir);
+        public abstract bool isValidCrateLocation();
     }
 }
