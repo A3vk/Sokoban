@@ -9,18 +9,18 @@ namespace Sokoban.View
 {
     public class OutputView
     {
-        Dictionary<Type, char> charDictonary;
+        private readonly Dictionary<Type, char> charDictonary;
 
         public OutputView()
         {
-            charDictonary = new Dictionary<Type, char>();
-            charDictonary.Add(typeof(Wall), '█');
-            charDictonary.Add(typeof(Floor), '.');
-            charDictonary.Add(typeof(Destination), 'X');
-            charDictonary.Add(typeof(VoidTile), ' ');
+            charDictonary = new Dictionary<Type, char>
+            {
+                { typeof(Wall), '█' },
+                { typeof(Floor), '.' }
+            };
         }
         
-        public void displayMaze(Maze maze)
+        public void DisplayMaze(Maze maze)
         {
             Console.Clear();
             Console.WriteLine("┌───────────┐\n" +
@@ -38,22 +38,33 @@ namespace Sokoban.View
                 {
                     char c = charDictonary[currentHead.GetType()];
 
-                    if(currentHead is Floor)
+                    if (currentHead is Floor floor)
                     {
-                        Floor floor = (Floor)currentHead;
-                        if(floor.Forklift != null)
+                        if (floor.IsDestination)
+                        {
+                            c = 'X';
+                        }
+
+                        if (floor.Forklift != null)
                         {
                             c = '@';
-                        } else if(floor.Crate != null)
+                        }
+                        else if (floor.Crate != null)
                         {
-                            if(floor.GetType() == typeof(Destination))
+                            if (floor.IsDestination)
                             {
                                 c = '0';
-                            } else
+                            }
+                            else
                             {
                                 c = 'O';
                             }
                         }
+                    }
+                    else if (currentHead is Wall wall)
+                    {
+                        if (wall.IsVoid)
+                            c = ' ';
                     }
 
                     Console.Write(c);
@@ -69,7 +80,7 @@ namespace Sokoban.View
                               "> Gebruik de pijltjestoetsen ( s = stop, r = reset )");
         }
 
-        public void displayMenu ()
+        public void DisplayMenu ()
         {
             
             Console.WriteLine("┌────────────────────────────────────────────────────┐\n" +
@@ -91,7 +102,7 @@ namespace Sokoban.View
                               "> Kies een doolhof ( 1 - 4 ), s = Stop");
         }
         
-        public void displayVictory()
+        public void DisplayVictory()
         {
             Console.Clear();
             Console.WriteLine("Je hebt gewonnen!");

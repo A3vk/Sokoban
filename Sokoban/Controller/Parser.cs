@@ -11,13 +11,13 @@ namespace Sokoban
     {
         private Maze _maze;
 
-        private string[] _names = { "doolhof1.txt", "doolhof2.txt", "doolhof3.txt", "doolhof4.txt" };
+        private readonly string[] _names = { "doolhof1.txt", "doolhof2.txt", "doolhof3.txt", "doolhof4.txt" };
 
         private Tile[] _heads;
         private List<char[]> _lines;
 
         // TODO: Herschrijven
-        public Maze parseMaze(int number)
+        public Maze ParseMaze(int number)
         {
             string[] inputLines = System.IO.File.ReadAllLines(@"../../Maze/" + _names[number - 1]);
             _lines = new List<char[]>();
@@ -30,13 +30,13 @@ namespace Sokoban
             _heads = new Tile[_lines.Count];
 
             _maze = new Maze();
-            connectHorizontal();
-            connectVertical();
+            ConnectHorizontal();
+            ConnectVertical();
 
             return _maze;
         }
 
-        public void connectHorizontal()
+        public void ConnectHorizontal()
         {
             for (int outer = 0; outer < _lines.Count; outer++)
             {
@@ -47,30 +47,30 @@ namespace Sokoban
                     switch (currentLine[inner])
                     {
                         case '#':
-                            temp = new Wall();
+                            temp = new Wall(false);
                             break;
                         case '.':
-                            temp = new Floor();
+                            temp = new Floor(false);
                             break;
                         case 'x':
-                            temp = new Destination();
+                            temp = new Floor(true);
                             break;
                         case 'o':
-                            Floor crateFloor = new Floor();
+                            Floor crateFloor = new Floor(false);
                             Crate crate = new Crate(crateFloor);
                             crateFloor.Crate = crate;
                             _maze.Crates.Add(crate);
                             temp = crateFloor;
                             break;
                         case '@':
-                            Floor forkliftFloor = new Floor();
+                            Floor forkliftFloor = new Floor(false);
                             Forklift forklift = new Forklift(forkliftFloor);
                             forkliftFloor.Forklift = forklift;
                             _maze.Forklift = forklift;
                             temp = forkliftFloor;
                             break;
                         default:
-                            temp = new VoidTile();
+                            temp = new Wall(true);
                             break;
                     }
 
@@ -80,20 +80,20 @@ namespace Sokoban
                     }
                     else
                     {
-                        _heads[outer].addEast(temp);
+                        _heads[outer].AddEast(temp);
                     }
                 }
             }
         }
 
-        public void connectVertical()
+        public void ConnectVertical()
         {
             _maze.Head = _heads[0];
             while(_heads[0].East != null)
             {
                 for (int i = 1; i < _heads.Length; i++)
                 {
-                    _heads[0].addSouth(_heads[i]);
+                    _heads[0].AddSouth(_heads[i]);
                     _heads[i] = _heads[i].East;
                 }
 

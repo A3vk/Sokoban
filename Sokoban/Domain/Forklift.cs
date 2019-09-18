@@ -36,7 +36,7 @@ namespace Sokoban.Domain
             }
 
             // Later even naar kijken
-            if(newLocation.isValidForkliftLocation(dir))
+            if(newLocation.IsValidForkliftLocation(dir))
             {
                 Location.Forklift = null;
                 ((Floor)newLocation).Forklift = this;

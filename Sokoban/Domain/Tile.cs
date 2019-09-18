@@ -13,41 +13,41 @@ namespace Sokoban.Domain
         public Tile South { get; set; }
         public Tile West { get; set; }
 
-        public void addEast(Tile tile)
+        public void AddEast(Tile tile)
         {
             if(East == null)
             {
                 East = tile;
-                East.addWest(this);
+                East.AddWest(this);
             } else
             {
-                East.addEast(tile);
+                East.AddEast(tile);
             }
         }
 
-        public void addWest(Tile tile)
+        public void AddWest(Tile tile)
         {
             West = tile;
         }
 
-        public void addSouth(Tile tile)
+        public void AddSouth(Tile tile)
         {
             if(South == null)
             {
                 South = tile;
-                South.addNorth(this);
+                South.AddNorth(this);
             } else
             {
-                South.addSouth(tile);
+                South.AddSouth(tile);
             }
         }
 
-        public void addNorth(Tile tile)
+        public void AddNorth(Tile tile)
         {
             North = tile;
         }
 
-        public abstract bool isValidForkliftLocation(Dir dir);
-        public abstract bool isValidCrateLocation();
+        public abstract bool IsValidForkliftLocation(Dir dir);
+        public abstract bool IsValidCrateLocation();
     }
 }

@@ -11,10 +11,10 @@ namespace Sokoban
     class Controller
     {
         private Maze _maze;
-        private InputView _inputView;
-        private OutputView _outputView;
-        private int _currentMaze;
-        private Parser _parser;
+        private readonly InputView _inputView;
+        private readonly OutputView _outputView;
+        private readonly int _currentMaze;
+        private readonly Parser _parser;
 
         public Controller()
         {
@@ -22,14 +22,12 @@ namespace Sokoban
             _inputView = new InputView();
 
             _outputView = new OutputView();
-            _outputView.displayMenu();
+            _outputView.DisplayMenu();
 
             while (true) {
-                Console.Write("\b");
-                ConsoleKeyInfo input = _inputView.waitForInput();
+                ConsoleKeyInfo input = _inputView.WaitForInput();
                 if (input.Key != ConsoleKey.S) {
-                    int number = 0;
-                    int.TryParse(input.KeyChar.ToString() , out number);
+                    int.TryParse(input.KeyChar.ToString(), out int number);
                     if (number >= 1 && number <= 4)
                     {
                         _currentMaze = number;
@@ -41,25 +39,25 @@ namespace Sokoban
                 }
             }
 
-            _maze = _parser.parseMaze(_currentMaze);
-            start();
+            _maze = _parser.ParseMaze(_currentMaze);
+            Start();
         }
 
-        public void start()
+        public void Start()
         {
             while(true)
             {
-                _outputView.displayMaze(_maze);
+                _outputView.DisplayMaze(_maze);
 
                 // Schrijf de input functie
-                ConsoleKeyInfo input = _inputView.waitForInput();
+                ConsoleKeyInfo input = _inputView.WaitForInput();
 
                 switch (input.Key)
                 {
                     case ConsoleKey.S:
                         return;
                     case ConsoleKey.R:
-                        _maze = _parser.parseMaze(_currentMaze);
+                        _maze = _parser.ParseMaze(_currentMaze);
                         break;
                     case ConsoleKey.UpArrow:
                         _maze.Forklift.Move(Dir.UP);
@@ -75,23 +73,23 @@ namespace Sokoban
                         break;
                 }
 
-                if(checkWin())
+                if(CheckWin())
                 {
                     break;
                 }
             }
 
-            _outputView.displayVictory();
+            _outputView.DisplayVictory();
             Console.ReadKey();
         }
 
-        public bool checkWin()
+        public bool CheckWin()
         {
             bool win = true;
 
             foreach (Crate crate in _maze.Crates)
             {
-                if(crate.Location.GetType() != typeof(Destination))
+                if(!crate.Location.IsDestination)
                 {
                     win = false;
                 }
