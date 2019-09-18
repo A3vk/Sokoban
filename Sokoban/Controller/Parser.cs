@@ -11,7 +11,7 @@ namespace Sokoban
     {
         private Maze _maze;
 
-        private string[] _names = { "doolhof1.txt", "doolhof2.txt", "doolhof3.txt", "doolhof4txt" };
+        private string[] _names = { "doolhof1.txt", "doolhof2.txt", "doolhof3.txt", "doolhof4.txt" };
 
         private Tile[] _heads;
         private List<char[]> _lines;
@@ -29,6 +29,7 @@ namespace Sokoban
 
             _heads = new Tile[_lines.Count];
 
+            _maze = new Maze();
             connectHorizontal();
             connectVertical();
 
@@ -55,10 +56,18 @@ namespace Sokoban
                             temp = new Destination();
                             break;
                         case 'o':
-                            temp = new Floor();
+                            Floor crateFloor = new Floor();
+                            Crate crate = new Crate(crateFloor);
+                            crateFloor.Crate = crate;
+                            _maze.Crates.Add(crate);
+                            temp = crateFloor;
                             break;
                         case '@':
-                            temp = new Floor();
+                            Floor forkliftFloor = new Floor();
+                            Forklift forklift = new Forklift(forkliftFloor);
+                            forkliftFloor.Forklift = forklift;
+                            _maze.Forklift = forklift;
+                            temp = forkliftFloor;
                             break;
                         default:
                             temp = new VoidTile();
@@ -79,7 +88,7 @@ namespace Sokoban
 
         public void connectVertical()
         {
-            _maze = new Maze(_heads[0]);
+            _maze.Head = _heads[0];
             while(_heads[0].East != null)
             {
                 for (int i = 1; i < _heads.Length; i++)

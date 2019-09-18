@@ -9,12 +9,17 @@ namespace Sokoban.Domain
     public class Maze
     {
         public Tile Head { get; set; }
-        private Forklift _forklift;
-        private List<Crate> _crates;
+        public Forklift Forklift { get; set; }
+        public List<Crate> Crates { get; set; }
 
-        public Maze(Tile tile)
+        public Maze()
         {
-            Head = tile;
+            Crates = new List<Crate>();
+        }
+
+        public void moveForklift(Dir dir)
+        {
+            Forklift.Move(dir);
         }
     }
 }

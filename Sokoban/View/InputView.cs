@@ -8,5 +8,10 @@ namespace Sokoban.View
 {
     public class InputView
     {
+        //Misschien herschrijven
+        public ConsoleKeyInfo waitForInput()
+        {
+            return Console.ReadKey();
+        }
     }
 }

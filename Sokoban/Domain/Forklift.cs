@@ -6,8 +6,42 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Domain
 {
+
     public class Forklift
     {
-        private Floor _location;
+        public Floor Location { get; set; }
+
+        public Forklift(Floor location)
+        {
+            Location = location;
+        }
+
+        public void Move(Dir dir)
+        {
+            Tile newLocation = null;
+            switch(dir)
+            {
+                case Dir.UP:
+                    newLocation = Location.North;
+                    break;
+                case Dir.RIGHT:
+                    newLocation = Location.East;
+                    break;
+                case Dir.DOWN:
+                    newLocation = Location.South;
+                    break;
+                case Dir.LEFT:
+                    newLocation = Location.West;
+                    break;
+            }
+
+            // Later even naar kijken
+            if(newLocation.isValidForkliftLocation(dir))
+            {
+                Location.Forklift = null;
+                ((Floor)newLocation).Forklift = this;
+                Location = (Floor)newLocation;
+            }
+        }
     }
 }

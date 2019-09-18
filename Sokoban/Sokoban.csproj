@@ -61,6 +61,7 @@
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\Parser.cs" />
     <Compile Include="Controller\Program.cs" />
+    <Compile Include="Domain\Dir.cs" />
     <Compile Include="Domain\Crate.cs" />
     <Compile Include="Domain\Destination.cs" />
     <Compile Include="Domain\Floor.cs" />
