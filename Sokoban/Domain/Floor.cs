@@ -8,13 +8,36 @@ namespace Sokoban.Domain
 {
     public class Floor : Tile
     {
-        public Crate Crate { get; set; }
-        public Forklift Forklift { get; set; }
+        private Crate _crate;
+        public Crate Crate {
+            get
+            {
+                return _crate;
+            }
+            set
+            {
+                Description = (value == null) ? (IsDestination) ? 'X' : '.' : (IsDestination) ? '0' : 'O';
+                _crate = value;
+            }
+        }
+        private Forklift _forklift;
+        public Forklift Forklift {
+            get
+            {
+                return _forklift;
+            }
+            set
+            {
+                Description = (value == null) ? (IsDestination) ? 'X' : '.' : '@';
+            }
+        }
         public bool IsDestination { get; set; }
 
         public Floor(bool b)
         {
             IsDestination = b;
+
+            Description = (b) ? 'X' : '.';
         }
         public override bool IsValidForkliftLocation(Dir dir)
         {

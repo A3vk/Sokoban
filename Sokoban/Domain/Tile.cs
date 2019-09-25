@@ -12,6 +12,7 @@ namespace Sokoban.Domain
         public Tile East { get; set; }
         public Tile South { get; set; }
         public Tile West { get; set; }
+        public char Description { get; set; }
 
         public void AddEast(Tile tile)
         {

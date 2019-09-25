@@ -10,27 +10,27 @@ namespace Sokoban
 {
     class Controller
     {
-        private Maze _maze;
-        private readonly InputView _inputView;
-        private readonly OutputView _outputView;
-        private readonly int _currentMaze;
-        private readonly Parser _parser;
+        public Maze Maze { get; set; }
+        public InputView InputView { get; set; }
+        public OutputView OutputView { get; set; }
+        public int CurrentMaze { get; set; }
+        public Parser Parser { get; set; }
 
         public Controller()
         {
-            _parser = new Parser();
-            _inputView = new InputView();
+            Parser = new Parser();
+            InputView = new InputView();
 
-            _outputView = new OutputView();
-            _outputView.DisplayMenu();
+            OutputView = new OutputView();
+            OutputView.DisplayMenu();
 
             while (true) {
-                ConsoleKeyInfo input = _inputView.WaitForInput();
+                ConsoleKeyInfo input = InputView.WaitForInput();
                 if (input.Key != ConsoleKey.S) {
                     int.TryParse(input.KeyChar.ToString(), out int number);
                     if (number >= 1 && number <= 4)
                     {
-                        _currentMaze = number;
+                        CurrentMaze = number;
                         break;
                     }
                 } else
@@ -39,37 +39,36 @@ namespace Sokoban
                 }
             }
 
-            _maze = _parser.ParseMaze(_currentMaze);
+            Maze = Parser.ParseMaze(CurrentMaze);
             Start();
         }
 
-        public void Start()
+        private void Start()
         {
             while(true)
             {
-                _outputView.DisplayMaze(_maze);
+                DisplayMaze();
 
-                // Schrijf de input functie
-                ConsoleKeyInfo input = _inputView.WaitForInput();
+                ConsoleKeyInfo input = InputView.WaitForInput();
 
                 switch (input.Key)
                 {
                     case ConsoleKey.S:
                         return;
                     case ConsoleKey.R:
-                        _maze = _parser.ParseMaze(_currentMaze);
+                        Maze = Parser.ParseMaze(CurrentMaze);
                         break;
                     case ConsoleKey.UpArrow:
-                        _maze.Forklift.Move(Dir.UP);
+                        Maze.Forklift.Move(Dir.UP);
                         break;
                     case ConsoleKey.RightArrow:
-                        _maze.Forklift.Move(Dir.RIGHT);
+                        Maze.Forklift.Move(Dir.RIGHT);
                         break;
                     case ConsoleKey.DownArrow:
-                        _maze.Forklift.Move(Dir.DOWN);
+                        Maze.Forklift.Move(Dir.DOWN);
                         break;
                     case ConsoleKey.LeftArrow:
-                        _maze.Forklift.Move(Dir.LEFT);
+                        Maze.Forklift.Move(Dir.LEFT);
                         break;
                 }
 
@@ -79,15 +78,15 @@ namespace Sokoban
                 }
             }
 
-            _outputView.DisplayVictory();
+            OutputView.DisplayVictory();
             Console.ReadKey();
         }
 
-        public bool CheckWin()
+        private bool CheckWin()
         {
             bool win = true;
 
-            foreach (Crate crate in _maze.Crates)
+            foreach (Crate crate in Maze.Crates)
             {
                 if(!crate.Location.IsDestination)
                 {
@@ -96,6 +95,30 @@ namespace Sokoban
             }
 
             return win;
+        }
+
+        private void DisplayMaze()
+        {
+            String output = "";
+
+            Tile head = Maze.Head;
+
+            Tile currentTile = head;
+
+            while (head != null)
+            {
+                while (currentTile != null)
+                {
+                    output += currentTile.Description;
+                    currentTile = currentTile.East;
+                }
+
+                output += "\n";
+                head = head.South;
+                currentTile = head;
+            }
+
+            OutputView.DisplayMaze(output);
         }
 
     }

@@ -8,11 +8,9 @@ namespace Sokoban.Domain
 {
     public class Wall : Tile
     {
-        public bool IsVoid { get; set; }
-
         public Wall(bool b)
         {
-            IsVoid = b;
+            Description = (b) ? ' ' : '█';
         }
         public override bool IsValidForkliftLocation(Dir dir)
         {

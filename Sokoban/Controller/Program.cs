@@ -9,10 +9,11 @@ namespace Sokoban
 {
     class Program
     {
+        private static Controller controller;
 
         static void Main(string[] args)
         {
-            new Controller();
+            controller = new Controller();
         }
     }
 }
