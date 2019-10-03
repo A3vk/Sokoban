@@ -66,6 +66,9 @@ namespace Sokoban
                             _maze.Forklift = forklift;
                             temp = forkliftFloor;
                             break;
+                        case '~':
+                            temp = new BrokenFloor();
+                            break;
                         default:
                             temp = new Wall(true);
                             break;

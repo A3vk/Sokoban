@@ -8,10 +8,13 @@ namespace Sokoban.Domain
 {
     public class Wall : Tile
     {
+        public bool IsVoid { get; set; }
         public Wall(bool b)
         {
-            Description = (b) ? ' ' : '█';
+            IsVoid = b;
+            setDescription();
         }
+
         public override bool IsValidForkliftLocation(Dir dir)
         {
             return false;
@@ -20,6 +23,11 @@ namespace Sokoban.Domain
         public override bool IsValidCrateLocation()
         {
             return false;
+        }
+
+        public override void setDescription()
+        {
+            Description = (IsVoid) ? ' ' : '█';
         }
     }
 }

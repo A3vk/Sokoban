@@ -14,6 +14,8 @@ namespace Sokoban.Domain
         public Tile West { get; set; }
         public char Description { get; set; }
 
+        public abstract void setDescription();
+
         public void AddEast(Tile tile)
         {
             if(East == null)

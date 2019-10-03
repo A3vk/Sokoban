@@ -8,18 +8,19 @@ namespace Sokoban.Domain
 {
     public class Floor : Tile
     {
-        private Crate _crate;
-        public Crate Crate {
+        protected Crate _crate;
+        public virtual Crate Crate {
             get
             {
                 return _crate;
             }
             set
             {
-                Description = (value == null) ? (IsDestination) ? 'X' : '.' : (IsDestination) ? '0' : 'O';
                 _crate = value;
+                setDescription();
             }
         }
+
         private Forklift _forklift;
         public Forklift Forklift {
             get
@@ -28,17 +29,33 @@ namespace Sokoban.Domain
             }
             set
             {
-                Description = (value == null) ? (IsDestination) ? 'X' : '.' : '@';
+                _forklift = value;
+                setDescription();
             }
         }
+
         public bool IsDestination { get; set; }
 
         public Floor(bool b)
         {
             IsDestination = b;
-
-            Description = (b) ? 'X' : '.';
+            setDescription();
         }
+
+        public override void setDescription()
+        {
+            if(Forklift != null)
+            {
+                Description = '@';
+            } else if(Crate != null)
+            {
+                Description = (IsDestination) ? '0' : 'O';
+            } else
+            {
+                Description = (IsDestination) ? 'X' : '.';
+            }
+        }
+
         public override bool IsValidForkliftLocation(Dir dir)
         {
             if(Crate == null)
