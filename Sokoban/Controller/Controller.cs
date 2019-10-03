@@ -28,7 +28,7 @@ namespace Sokoban
                 ConsoleKeyInfo input = InputView.WaitForInput();
                 if (input.Key != ConsoleKey.S) {
                     int.TryParse(input.KeyChar.ToString(), out int number);
-                    if (number >= 1 && number <= 4)
+                    if (number >= 1 && number <= 6)
                     {
                         CurrentMaze = number;
                         break;

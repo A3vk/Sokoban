@@ -94,6 +94,8 @@
     <Content Include="Maze\doolhof2.txt" />
     <Content Include="Maze\doolhof3.txt" />
     <Content Include="Maze\doolhof4.txt" />
+    <Content Include="Maze\doolhof5.txt" />
+    <Content Include="Maze\doolhof6.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

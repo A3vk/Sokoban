@@ -41,7 +41,7 @@ namespace Sokoban.View
                               "└────────────────────────────────────────────────────┘\n" +
                               "\n" +
                               "\n" +
-                              "> Kies een doolhof ( 1 - 4 ), s = Stop");
+                              "> Kies een doolhof ( 1 - 6 ), s = Stop");
         }
         
         public void DisplayVictory()

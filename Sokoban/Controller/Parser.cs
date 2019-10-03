@@ -11,15 +11,12 @@ namespace Sokoban
     {
         private Maze _maze;
 
-        private readonly string[] _names = { "doolhof1.txt", "doolhof2.txt", "doolhof3.txt", "doolhof4.txt" };
-
         private Tile[] _heads;
         private List<char[]> _lines;
 
-        // TODO: Herschrijven
         public Maze ParseMaze(int number)
         {
-            string[] inputLines = System.IO.File.ReadAllLines(@"../../Maze/" + _names[number - 1]);
+            string[] inputLines = System.IO.File.ReadAllLines(@"../../Maze/doolhof" + number + ".txt");
             _lines = new List<char[]>();
 
             foreach (var line in inputLines)
