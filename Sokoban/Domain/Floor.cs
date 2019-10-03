@@ -63,7 +63,11 @@ namespace Sokoban.Domain
             } else if(Crate != null)
             {
                 Description = (IsDestination) ? '0' : 'O';
-            } else
+            } else if(Employee != null)
+            {
+                Description = (Employee.IsAwake) ? '$' : 'Z';
+            }
+            else
             {
                 Description = (IsDestination) ? 'X' : '.';
             }
