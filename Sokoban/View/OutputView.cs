@@ -25,20 +25,24 @@ namespace Sokoban.View
         public void DisplayMenu ()
         {
             
-            Console.WriteLine("┌────────────────────────────────────────────────────┐\n" +
-                              "│                                                    │\n" +
-                              "│ Welkom bij Sokoban                                 │\n" +
-                              "│                                                    │\n" +
-                              "│ Betekenis van de symbolen   │   Doel van het spel  │\n" +
-                              "│                             │                      │\n" +
-                              "│ Spatie : Outerspace         │   Duw met de truck   │\n" +
-                              "│      █ : Muur               │   de krat(ten)       │\n" +
-                              "│      . : Vloer              │   naar de bestemming │\n" +
-                              "│      O : Krat               │                      │\n" +
-                              "│      0 : Krat op bestemming │                      │\n" +
-                              "│      X : Bestemming         │                      │\n" +
-                              "│      @ : Truck              │                      │\n" +
-                              "└────────────────────────────────────────────────────┘\n" +
+            Console.WriteLine("┌─────────────────────────────────────────────────────┐\n" +
+                              "│                                                     │\n" +
+                              "│ Welkom bij Sokoban                                  │\n" +
+                              "│                                                     │\n" +
+                              "│ Betekenis van de symbolen    │   Doel van het spel  │\n" +
+                              "│                              │                      │\n" +
+                              "│ Spatie : Outerspace          │   Duw met de truck   │\n" +
+                              "│      █ : Muur                │   de krat(ten)       │\n" +
+                              "│      . : Vloer               │   naar de bestemming │\n" +
+                              "│      O : Krat                │                      │\n" +
+                              "│      0 : Krat op bestemming  │                      │\n" +
+                              "│      X : Bestemming          │                      │\n" +
+                              "│      @ : Truck               │                      │\n" +
+                              "│      $ : Medewerker          │                      │\n" +
+                              "│      Z : Slapende medewerker │                      │\n" +
+                              "│      ~ : Valkuil             │                      │\n" +
+                              "│        : Gat                 │                      │\n" +
+                              "└─────────────────────────────────────────────────────┘\n" +
                               "\n" +
                               "\n" +
                               "> Kies een doolhof ( 1 - 4 ), s = Stop");
