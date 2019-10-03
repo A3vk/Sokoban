@@ -9,9 +9,9 @@ namespace Sokoban.View
     public class InputView
     {
         //Misschien herschrijven
-        public ConsoleKeyInfo waitForInput()
+        public ConsoleKeyInfo WaitForInput()
         {
-            return Console.ReadKey();
+            return Console.ReadKey(true);
         }
     }
 }

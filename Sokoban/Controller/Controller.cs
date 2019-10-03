@@ -10,29 +10,27 @@ namespace Sokoban
 {
     class Controller
     {
-        private Maze _maze;
-        private InputView _inputView;
-        private OutputView _outputView;
-        private int _currentMaze;
-        private Parser _parser;
+        public Maze Maze { get; set; }
+        public InputView InputView { get; set; }
+        public OutputView OutputView { get; set; }
+        public int CurrentMaze { get; set; }
+        public Parser Parser { get; set; }
 
         public Controller()
         {
-            _parser = new Parser();
-            _inputView = new InputView();
+            Parser = new Parser();
+            InputView = new InputView();
 
-            _outputView = new OutputView();
-            _outputView.displayMenu();
+            OutputView = new OutputView();
+            OutputView.DisplayMenu();
 
             while (true) {
-                Console.Write("\b");
-                ConsoleKeyInfo input = _inputView.waitForInput();
+                ConsoleKeyInfo input = InputView.WaitForInput();
                 if (input.Key != ConsoleKey.S) {
-                    int number = 0;
-                    int.TryParse(input.KeyChar.ToString() , out number);
-                    if (number >= 1 && number <= 4)
+                    int.TryParse(input.KeyChar.ToString(), out int number);
+                    if (number >= 1 && number <= 6)
                     {
-                        _currentMaze = number;
+                        CurrentMaze = number;
                         break;
                     }
                 } else
@@ -41,63 +39,90 @@ namespace Sokoban
                 }
             }
 
-            _maze = _parser.parseMaze(_currentMaze);
-            start();
+            Maze = Parser.ParseMaze(CurrentMaze);
+            Start();
         }
 
-        public void start()
+        private void Start()
         {
             while(true)
             {
-                _outputView.displayMaze(_maze);
+                DisplayMaze();
 
-                // Schrijf de input functie
-                ConsoleKeyInfo input = _inputView.waitForInput();
+                ConsoleKeyInfo input = InputView.WaitForInput();
 
                 switch (input.Key)
                 {
                     case ConsoleKey.S:
                         return;
                     case ConsoleKey.R:
-                        _maze = _parser.parseMaze(_currentMaze);
+                        Maze = Parser.ParseMaze(CurrentMaze);
                         break;
                     case ConsoleKey.UpArrow:
-                        _maze.Forklift.Move(Dir.UP);
+                        Maze.Forklift.Move(Dir.UP);
+                        Maze.Employee.DoSomething();
                         break;
                     case ConsoleKey.RightArrow:
-                        _maze.Forklift.Move(Dir.RIGHT);
+                        Maze.Forklift.Move(Dir.RIGHT);
+                        Maze.Employee.DoSomething();
                         break;
                     case ConsoleKey.DownArrow:
-                        _maze.Forklift.Move(Dir.DOWN);
+                        Maze.Forklift.Move(Dir.DOWN);
+                        Maze.Employee.DoSomething();
                         break;
                     case ConsoleKey.LeftArrow:
-                        _maze.Forklift.Move(Dir.LEFT);
+                        Maze.Forklift.Move(Dir.LEFT);
+                        Maze.Employee.DoSomething();
                         break;
                 }
 
-                if(checkWin())
+                if(CheckWin())
                 {
                     break;
                 }
             }
 
-            _outputView.displayVictory();
+            OutputView.DisplayVictory();
             Console.ReadKey();
         }
 
-        public bool checkWin()
+        private bool CheckWin()
         {
             bool win = true;
 
-            foreach (Crate crate in _maze.Crates)
+            foreach (Crate crate in Maze.Crates)
             {
-                if(crate.Location.GetType() != typeof(Destination))
+                if(!crate.Location.IsDestination)
                 {
                     win = false;
                 }
             }
 
             return win;
+        }
+
+        private void DisplayMaze()
+        {
+            String output = "";
+
+            Tile head = Maze.Head;
+
+            Tile currentTile = head;
+
+            while (head != null)
+            {
+                while (currentTile != null)
+                {
+                    output += currentTile.Description;
+                    currentTile = currentTile.East;
+                }
+
+                output += "\n";
+                head = head.South;
+                currentTile = head;
+            }
+
+            OutputView.DisplayMaze(output);
         }
 
     }

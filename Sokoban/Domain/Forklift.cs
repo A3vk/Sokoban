@@ -16,7 +16,7 @@ namespace Sokoban.Domain
             Location = location;
         }
 
-        public void Move(Dir dir)
+        public virtual bool Move(Dir dir)
         {
             Tile newLocation = null;
             switch(dir)
@@ -35,13 +35,15 @@ namespace Sokoban.Domain
                     break;
             }
 
-            // Later even naar kijken
-            if(newLocation.isValidForkliftLocation(dir))
+            if(newLocation.IsValidForkliftLocation(dir))
             {
                 Location.Forklift = null;
                 ((Floor)newLocation).Forklift = this;
                 Location = (Floor)newLocation;
+                return true;
             }
+
+            return false;
         }
     }
 }

@@ -11,13 +11,14 @@ namespace Sokoban.Domain
         public Tile Head { get; set; }
         public Forklift Forklift { get; set; }
         public List<Crate> Crates { get; set; }
+        public Employee Employee { get; set; }
 
         public Maze()
         {
             Crates = new List<Crate>();
         }
 
-        public void moveForklift(Dir dir)
+        public void MoveForklift(Dir dir)
         {
             Forklift.Move(dir);
         }

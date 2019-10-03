@@ -8,26 +8,106 @@ namespace Sokoban.Domain
 {
     public class Floor : Tile
     {
-        public Crate Crate { get; set; }
-        public Forklift Forklift { get; set; }
-
-        public override bool isValidForkliftLocation(Dir dir)
-        {
-            if(Crate == null)
+        protected Crate _crate;
+        public virtual Crate Crate {
+            get
             {
-                return true;
-            } else
+                return _crate;
+            }
+            set
             {
-                return Crate.move(dir);
+                _crate = value;
+                setDescription();
             }
         }
 
-        public override bool isValidCrateLocation()
+        private Forklift _forklift;
+        public Forklift Forklift {
+            get
+            {
+                return _forklift;
+            }
+            set
+            {
+                _forklift = value;
+                setDescription();
+            }
+        }
+
+        private Employee _employee;
+        public Employee Employee {
+            get
+            {
+                return _employee; 
+            }
+            set
+            {
+                _employee = value;
+                setDescription();
+            }
+        }
+
+        public bool IsDestination { get; set; }
+
+        public Floor(bool b)
+        {
+            IsDestination = b;
+            setDescription();
+        }
+
+        public override void setDescription()
+        {
+            if(Forklift != null)
+            {
+                Description = '@';
+            } else if(Crate != null)
+            {
+                Description = (IsDestination) ? '0' : 'O';
+            } else if(Employee != null)
+            {
+                Description = (Employee.IsAwake) ? '$' : 'Z';
+            }
+            else
+            {
+                Description = (IsDestination) ? 'X' : '.';
+            }
+        }
+
+        public override bool IsValidForkliftLocation(Dir dir)
+        {
+            if(Crate == null && Employee == null)
+            {
+                return true;
+            } else if(Employee != null)
+            {
+                Employee.Wake();
+                return false;
+            } else
+            {
+                return Crate.Move(dir);
+            }
+        }
+
+        public override bool IsValidCrateLocation()
         {
             if(Crate == null)
                 return true;
 
             return false;
+        }
+
+        public override bool IsValidEmployeeLocation(Dir dir)
+        {
+            if (Forklift != null)
+            {
+                return Forklift.Move(dir);
+            } else if (Crate != null)
+            {
+                return Crate.Move(dir);
+            } else
+            {
+                return true;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Sokoban.Domain
             Location = location;
         }
 
-        public bool move(Dir dir)
+        public bool Move(Dir dir)
         {
             Tile newLocation = null;
             switch (dir)
@@ -35,7 +35,7 @@ namespace Sokoban.Domain
             }
 
             // Later even naar kijken
-            if (newLocation.isValidCrateLocation())
+            if (newLocation.IsValidCrateLocation())
             {
                 Location.Crate = null;
                 ((Floor)newLocation).Crate = this;
