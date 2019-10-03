@@ -40,7 +40,15 @@ namespace Sokoban.Domain
                 }
 
             }
+
+            Location.setDescription();
         }
+
+        public void Wake()
+        {
+            IsAwake = true;
+        }
+
         public override bool Move(Dir dir)
         {
             Tile newLocation = null;

@@ -75,9 +75,13 @@ namespace Sokoban.Domain
 
         public override bool IsValidForkliftLocation(Dir dir)
         {
-            if(Crate == null)
+            if(Crate == null && Employee == null)
             {
                 return true;
+            } else if(Employee != null)
+            {
+                Employee.Wake();
+                return false;
             } else
             {
                 return Crate.Move(dir);
