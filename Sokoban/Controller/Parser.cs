@@ -69,6 +69,13 @@ namespace Sokoban
                         case '~':
                             temp = new BrokenFloor();
                             break;
+                        case '$':
+                            Floor employeeFloor = new Floor(false);
+                            Employee employee = new Employee(employeeFloor);
+                            employeeFloor.Employee = employee;
+                            _maze.Employee = employee;
+                            temp = employeeFloor;
+                            break;
                         default:
                             temp = new Wall(true);
                             break;

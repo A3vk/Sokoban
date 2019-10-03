@@ -15,6 +15,11 @@ namespace Sokoban.Domain
             setDescription();
         }
 
+        public override void setDescription()
+        {
+            Description = (IsVoid) ? ' ' : '█';
+        }
+
         public override bool IsValidForkliftLocation(Dir dir)
         {
             return false;
@@ -25,9 +30,9 @@ namespace Sokoban.Domain
             return false;
         }
 
-        public override void setDescription()
+        public override bool IsValidEmployeeLocation(Dir dir)
         {
-            Description = (IsVoid) ? ' ' : '█';
+            return false;
         }
     }
 }

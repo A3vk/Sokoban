@@ -34,6 +34,19 @@ namespace Sokoban.Domain
             }
         }
 
+        private Employee _employee;
+        public Employee Employee {
+            get
+            {
+                return _employee; 
+            }
+            set
+            {
+                _employee = value;
+                setDescription();
+            }
+        }
+
         public bool IsDestination { get; set; }
 
         public Floor(bool b)
@@ -73,6 +86,20 @@ namespace Sokoban.Domain
                 return true;
 
             return false;
+        }
+
+        public override bool IsValidEmployeeLocation(Dir dir)
+        {
+            if (Forklift != null)
+            {
+                return Forklift.Move(dir);
+            } else if (Crate != null)
+            {
+                return Crate.Move(dir);
+            } else
+            {
+                return true;
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Sokoban.Domain
         public Tile Head { get; set; }
         public Forklift Forklift { get; set; }
         public List<Crate> Crates { get; set; }
+        public Employee Employee { get; set; }
 
         public Maze()
         {

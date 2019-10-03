@@ -52,5 +52,6 @@ namespace Sokoban.Domain
 
         public abstract bool IsValidForkliftLocation(Dir dir);
         public abstract bool IsValidCrateLocation();
+        public abstract bool IsValidEmployeeLocation(Dir dir);
     }
 }

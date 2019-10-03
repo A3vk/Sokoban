@@ -62,6 +62,7 @@
     <Compile Include="Controller\Parser.cs" />
     <Compile Include="Controller\Program.cs" />
     <Compile Include="Domain\BrokenFloor.cs" />
+    <Compile Include="Domain\Employee.cs" />
     <Compile Include="Domain\Dir.cs" />
     <Compile Include="Domain\Crate.cs" />
     <Compile Include="Domain\Floor.cs" />
