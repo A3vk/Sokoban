@@ -60,15 +60,19 @@ namespace Sokoban
                         break;
                     case ConsoleKey.UpArrow:
                         Maze.Forklift.Move(Dir.UP);
+                        Maze.Employee.DoSomething();
                         break;
                     case ConsoleKey.RightArrow:
                         Maze.Forklift.Move(Dir.RIGHT);
+                        Maze.Employee.DoSomething();
                         break;
                     case ConsoleKey.DownArrow:
                         Maze.Forklift.Move(Dir.DOWN);
+                        Maze.Employee.DoSomething();
                         break;
                     case ConsoleKey.LeftArrow:
                         Maze.Forklift.Move(Dir.LEFT);
+                        Maze.Employee.DoSomething();
                         break;
                 }
 

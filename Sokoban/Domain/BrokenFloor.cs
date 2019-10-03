@@ -36,12 +36,14 @@ namespace Sokoban.Domain
 
         public override void setDescription()
         {
-            if(Crate != null)
+            if (Crate != null)
             {
                 Description = 'O';
-            } else if(Forklift != null)
+            } else if (Forklift != null)
             {
                 Description = '@';
+            } else if (Employee != null) {
+                Description = (Employee.IsAwake) ? '$' : 'Z';
             } else
             {
                 Description = (Strength > 0) ? '~' : ' ';
@@ -62,6 +64,14 @@ namespace Sokoban.Domain
                 Strength--;
 
             return base.IsValidForkliftLocation(dir);
+        }
+
+        public override bool IsValidEmployeeLocation(Dir dir)
+        {
+            if (Strength >= 0)
+                Strength--;
+
+            return base.IsValidEmployeeLocation(dir);
         }
     }
 }
