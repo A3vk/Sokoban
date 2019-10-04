@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Sokoban.Program">
-    <Position X="5.25" Y="2.25" Width="1.5" />
+    <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Controller\Program.cs</FileName>
@@ -11,7 +11,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Parser">
-    <Position X="10.75" Y="2.25" Width="1.5" />
+    <Position X="13" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAAAAAABgAAAAAAAAgAAAAAAAAABBAA=</HashCode>
       <FileName>Controller\Parser.cs</FileName>
@@ -21,50 +21,64 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Controller">
-    <Position X="7.75" Y="2.25" Width="1.5" />
+    <Position X="10" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAACAAABAAQAIAAAAAAAAACAAAAAAEAAIAAAA=</HashCode>
       <FileName>Controller\Controller.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Maze" />
-      <Property Name="OutputView" />
       <Property Name="InputView" />
+      <Property Name="OutputView" />
       <Property Name="Parser" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Domain.Crate">
-    <Position X="3.25" Y="7.75" Width="1.5" />
+    <Position X="7.5" Y="8.25" Width="1.5" />
+    <AssociationLine Name="Location" Type="Sokoban.Domain.Floor" FixedFromPoint="true">
+      <Path>
+        <Point X="8.562" Y="9.546" />
+        <Point X="8.562" Y="10.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.98" Y="0.084" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Crate.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Location" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="Sokoban.Domain.Wall" Collapsed="true">
-    <Position X="7.75" Y="11.25" Width="1.5" />
+  <Class Name="Sokoban.Domain.Wall">
+    <Position X="10" Y="12" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>AAAAAACAABAAAAIAAAAAAAAAAEAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Domain\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Domain.Tile">
-    <Position X="7.75" Y="7.5" Width="1.5" />
+    <Position X="10" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAEAAAABAgCAAAAgAAAAAAEAAAAAAAAAAAAAABAEw=</HashCode>
+      <HashCode>AACAEACAABAgCAIAAgAAAAAAEAAAAAAAAAAAAAABAEw=</HashCode>
       <FileName>Domain\Tile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Domain.Floor">
-    <Position X="6" Y="10.5" Width="1.5" />
-    <InheritanceLine Type="Sokoban.Domain.Tile" FixedToPoint="true">
+    <Position X="7.5" Y="10.75" Width="1.5" />
+    <AssociationLine Name="Crate" Type="Sokoban.Domain.Crate" FixedFromPoint="true">
       <Path>
-        <Point X="8.5" Y="10.786" />
-        <Point X="8.5" Y="11.062" />
-        <Point X="7.5" Y="11.062" />
+        <Point X="8" Y="10.75" />
+        <Point X="8" Y="9.546" />
       </Path>
-    </InheritanceLine>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.155" Y="0.133" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAIABAQABABAAAAAAAAAAAAAAACAAAAAAAAAEA=</HashCode>
+      <HashCode>AAAAAACIABARABIBAAAAAAAACAAAAAACAAAAAAAAAEA=</HashCode>
       <FileName>Domain\Floor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -73,56 +87,96 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Domain.Forklift">
-    <Position X="5" Y="7.75" Width="1.5" />
+    <Position X="3" Y="8" Width="1.5" />
+    <AssociationLine Name="Location" Type="Sokoban.Domain.Floor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.156" Y="9.296" />
+        <Point X="4.156" Y="12.25" />
+        <Point X="7.5" Y="12.25" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Forklift.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Location" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Domain.Maze">
-    <Position X="7.75" Y="6" Width="1.5" />
+    <Position X="10" Y="6" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <AssociationLine Name="Forklift" Type="Sokoban.Domain.Forklift" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="7.75" Y="6.562" />
-        <Point X="5.75" Y="6.562" />
-        <Point X="5.75" Y="7.75" />
+        <Point X="10" Y="6.376" />
+        <Point X="3.75" Y="6.376" />
+        <Point X="3.75" Y="8" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Crates" Type="Sokoban.Domain.Crate" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="7.75" Y="6.25" />
-        <Point X="4" Y="6.25" />
-        <Point X="4" Y="7.75" />
+        <Point X="10" Y="6.543" />
+        <Point X="8.25" Y="6.543" />
+        <Point X="8.25" Y="8.25" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAJABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAAAAAAAAJABAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Maze.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Head" />
       <Property Name="Forklift" />
+      <Property Name="Employee" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Crates" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Sokoban.View.OutputView" Collapsed="true">
-    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Position X="11" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.View.InputView" Collapsed="true">
-    <Position X="6.5" Y="0.5" Width="1.5" />
+    <Position X="8.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\InputView.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Sokoban.Domain.BrokenFloor">
+    <Position X="5.25" Y="8.75" Width="1.5" />
+    <AssociationLine Name="Crate" Type="Sokoban.Domain.Crate">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.105" Y="0.108" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAACAABAAABIAAAAAAAAAAABAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Domain\BrokenFloor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Crate" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Domain.Employee">
+    <Position X="0.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAIAAAAAAAAAAAAAAAgAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Sokoban.Domain.Dir">
+    <Position X="12.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Dir.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

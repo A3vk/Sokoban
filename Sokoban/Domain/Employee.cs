@@ -15,7 +15,7 @@ namespace Sokoban.Domain
             IsAwake = false;
         }
 
-        public void DoSomething()
+        public void RandomAction()
         {
             Random random = new Random();
             if (IsAwake)
