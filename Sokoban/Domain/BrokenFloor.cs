@@ -52,26 +52,32 @@ namespace Sokoban.Domain
 
         public override bool IsValidCrateLocation()
         {
-            if(Strength >= 0)
+            bool b =  base.IsValidCrateLocation();
+
+            if (b && Strength >= 0)
                 Strength--;
 
-            return base.IsValidCrateLocation();
+            return b;
         }
 
         public override bool IsValidForkliftLocation(Dir dir)
         {
-            if(Strength >= 0)
+            bool b = base.IsValidForkliftLocation(dir);
+
+            if (b && Strength >= 0)
                 Strength--;
 
-            return base.IsValidForkliftLocation(dir);
+            return b;
         }
 
         public override bool IsValidEmployeeLocation(Dir dir)
         {
-            if (Strength >= 0)
+            bool b = base.IsValidEmployeeLocation(dir);
+
+            if (b && Strength >= 0)
                 Strength--;
 
-            return base.IsValidEmployeeLocation(dir);
+            return b;
         }
     }
 }
